@@ -1,22 +1,18 @@
 function guardar() {
 
     console.log('Funcion Guardar')
-    let usuario_ = document.getElementById('usuario').value
-    let password_ = document.getElementById('password').value
-    let nombre_ = document.getElementById('nombre').value
-    let apellido_ = document.getElementById('apellido').value
+    let username_ = document.getElementById('username').value
     let email_ = document.getElementById('email').value
+    let password_ = document.getElementById('password').value
     let rol = document.getElementById('rol').value
     let listRoles = [];
     listRoles.push({name: rol})
     
 
     let data = {  
-        usuario: usuario_, 
-        password: password_,
-        nombre: nombre_, 
-        apellido: apellido_, 
+        username: username_, 
         email:email_,
+        password: password_,
         roles: listRoles
     }
 

@@ -54,10 +54,15 @@ function guardar_representante() {
 
 function listarEmpresas() {
     return new Promise((resolve, reject) => {
+        // Recuperar el token de sessionStorage
+        let authToken = sessionStorage.getItem('authToken');
+        console.log(authToken)
+
         const request_options = {
             method: 'GET',
             headers: {
-                'Content-Type': 'application/json' // Indicar que se envían datos JSON
+                'Content-Type': 'application/json', // Indicar que se envían datos JSON
+                'x-access-token': authToken    
             }
         };
 
@@ -78,15 +83,15 @@ listarEmpresas()
 
 //Funcion que se encarga de carga el list de empresa
 function cargarSelectEmpresas(data) {
-    for(let i=0; i<data.body.length; i++){
-        // Crear una nueva opción para la lista desplegable
+    data.forEach((item) => {
+        console.log(`ID: ${item._id}, RUC: ${item.ruc}, Nombre: ${item.nombre}`);
         var option = document.createElement("option");
-        option.value = data.body[i]._id;
-        option.text = data.body[i].nombre;
+        option.value = item._id;
+        option.text = item.nombre;
 
         // Agregar la nueva opción a la lista desplegable
         document.getElementById("selectEmpresa").appendChild(option);
-    }
+    });
 }
 //Funcion llamada desde el onclick del boton agregarEmpresas
 function agregarEmpresa(){
