@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Representante</title>
+        <script type="text/javascript" src="http://localhost:3001/socket.io/socket.io.js"></script>
+    </head>
+    <body>
+        <h1>Menu</h1>
+        <a href="representante.html">Representante</a>
+        <script>
+            var socket = io.connect('http://localhost:3001/', {
+                forceNet: true
+            })
+            socket.on('mensaje', (data)=>console.log(data))
+        </script>
+        <a href="registroUsuario.html">Registrar Usuario</a>
+    </body>
+</html>

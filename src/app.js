@@ -34,4 +34,6 @@ app.use('/products', productsRoutes)
 app.use('/empresa', empresaRoutes)
 app.use('/representante', representanteRoutes)
 
+app.use('/pagina', express.   static('public'))
+
 export default app
