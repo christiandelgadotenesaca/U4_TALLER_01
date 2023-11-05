@@ -6,7 +6,7 @@ mongoose.set('strictQuery', false)
 mongoose.connect(config.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    dbName:'tarea2'
+    dbName:'u4_taller_01'
 })
     .then((data) => console.log('DB se encuentra conectada.'))
     .catch((error) => console.log(error))

@@ -22,15 +22,16 @@ function signIn(){
         fetch('/auth/signIn', request_options)
             .then(response => {
                 if (response.status === 401) {
-                    console.log('No autorizado. Debes iniciar sesión.');
-                    alert('No autorizado. Debes iniciar sesión.')
+                    response.json().then(data => {
+                        alert(data.message)
+                    });
                 } else if (response.ok) {
                     response.json().then(data => {
                         //Captura el token
                         let token = data.token
                         sessionStorage.setItem('authToken', token)
                         // Redirige a una nueva página
-                        window.location.href = 'representante.html';
+                        window.location.replace("representante.html")
                     });
                 } else {
                     console.log('Error en la solicitud:', response.status);

@@ -27,7 +27,7 @@ export const verify_token = async (req, res, next) => {
 export const is_admin = async (req, res, next) => {
     const user = await User.findById(req.user_id)
     const roles = await Role.find({_id: {$in: user.roles}})
-
+    console.log('is_admin')
     for (let i=0; i<roles.length; i++) {
         if (roles[i].name == 'admin') {
             next()
@@ -37,15 +37,15 @@ export const is_admin = async (req, res, next) => {
     return res.status(403).json({message: 'Requer admin role.'})    
 }
 
-export const is_moderator = async (req, res, next) => {
+export const is_user = async (req, res, next) => {
     const user = await User.findById(req.user_id)
     const roles = await Role.find({_id: {$in: user.roles}})
 
     for (let i=0; i<roles.length; i++) {
-        if (roles[i].name == 'moderator') {
+        if (roles[i].name == 'user') {
             next()
             return 
         }
     }
-    return res.status(403).json({message: 'Requer moderator role.'})    
+    return res.status(403).json({message: 'Requer user role.'})    
 }

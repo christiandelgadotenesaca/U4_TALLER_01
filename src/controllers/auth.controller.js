@@ -43,6 +43,20 @@ export const sign_in = async (req, res) => {
         if (!verify_password) {
             return res.status(401).json({token: null, message: 'Password invalido'})
         }
+        
+        let is_admin;
+        const roles = await Role.find({_id: {$in: user_found.roles}})
+        for (let i=0; i<roles.length; i++) {
+            if (roles[i].name == 'admin') {
+                is_admin = true
+            }
+        }
+        console.log(is_admin)
+        if(!is_admin){
+            return res.status(401).json({token: null, message: 'Solo rol admin'})
+        }
+        
+
         // Creacion del token para comunicacion autenticada.
         const token = jwt.sign({id: user_found._id}, config.SECRET, {
             expiresIn: 86400 // 24 horas

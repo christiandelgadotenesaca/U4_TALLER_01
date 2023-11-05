@@ -90,7 +90,7 @@ body {
   }
 
   /* Estilo para el combo box */
-  select {
+ .form-group select {
     width: 200px; /* Ancho del select */
     padding: 10px; /* Relleno interno */
     font-size: 16px; /* Tamaño del texto */
@@ -121,12 +121,16 @@ body {
 .button-link {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #007BFF; /* Color de fondo del botón */
-    color: #fff; /* Color del texto */
+    background-color: #00ff48; /* Color de fondo del botón */
+    color: #ffffff; /* Color del texto */
     text-decoration: none; /* Eliminar el subrayado del enlace */
     border: none; /* Eliminar el borde del enlace */
     border-radius: 3px; /* Bordes redondeados */
     cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
     margin-top: 10px;
-    width: 90%;
+    width: 95%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    text-align: center;
 }
