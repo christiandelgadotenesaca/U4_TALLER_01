@@ -29,6 +29,7 @@ function signIn(){
                     response.json().then(data => {
                         //Captura el token
                         let token = data.token
+                        console.log('authToken'+ token)
                         sessionStorage.setItem('authToken', token)
                         // Redirige a una nueva página
                         window.location.replace("representante.html")

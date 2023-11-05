@@ -6,7 +6,6 @@ import { create_roles } from './libs/initialSetup'
 import userRoutes from './routes/user.routes'
 import authRoutes from './routes/auth.routes'
 import roleRoutes from './routes/role.routes'
-import productsRoutes from './routes/products.routes'
 import empresaRoutes from './routes/empresa.routes'
 import representanteRoutes from './routes/representante.routes'
 
@@ -32,7 +31,6 @@ app.use( express.urlencoded({extended:false}) )
 app.use('/users', userRoutes)
 app.use('/auth', authRoutes)
 app.use('/role', roleRoutes)
-app.use('/products', productsRoutes)
 app.use('/empresa', empresaRoutes)
 app.use('/representante', representanteRoutes)
 app.use('/pagina', express.static('public'))

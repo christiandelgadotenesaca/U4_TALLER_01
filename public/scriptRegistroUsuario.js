@@ -6,11 +6,12 @@ function guardar() {
     let password_ = document.getElementById('password').value
     //let rol = document.getElementById('rol').value
     var select = document.getElementById("selectRol")
-    let rol = select.value
-    
+    var rol = select.value
+    console.log(rol)
+
     let listRoles = [];
     listRoles.push({name: rol})
-    
+   
 
     let data = {  
         username: username_, 
@@ -76,7 +77,7 @@ function cargarSelectRol(data){
     data.forEach((item) => {
         console.log(`ID: ${item._id}, name: ${item.name}`)
         var option = document.createElement("option")
-        option.value = item._id
+        option.value = item.name
         option.text = item.name
 
         document.getElementById("selectRol").appendChild(option)
